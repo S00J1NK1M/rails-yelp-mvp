@@ -1,0 +1,14 @@
+<h1>Restaurants</h1>
+<%= link_to "Add a wew restaurant", new_restaurant_path %>
+<br>
+<br>
+
+<div id="restaurants">
+  <% @restaurants.each do |restaurant| %>
+    <%= render restaurant %>
+    <p>
+      <%= link_to "This restaurant's reviews", restaurant %>
+    </p>
+    <br>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+<%= render @restaurant %>
+
+<h2>Reviews for <%= @restaurant.name %></h2>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      Review: <%= review.content %> / Rating:
+      <%= review.rating %>
+      (<%= link_to "delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>)
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Write a review", new_restaurant_review_path(@restaurant) %> |
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+  <%= link_to "Back to restaurants", restaurants_path %>
+</div>
